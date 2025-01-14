@@ -23,6 +23,7 @@ class PostLocalSourceImpl implements PostLocalSource {
   Future<void> cachePosts(List<PostModel> posts) async {
     log(' :------------------------------->  cache local post   <------------------------------:');
     SqfliteService instance = SqfliteService.instance;
+    instance.clearTable("posts");
     await instance.insertAll('posts', posts.map((e) => e.toJson()).toList());
   }
 }

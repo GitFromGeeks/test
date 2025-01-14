@@ -36,4 +36,9 @@ class SqfliteService {
     final dbClient = await database;
     return await dbClient.query(table);
   }
+
+  Future<void> clearTable(String table) async {
+    final dbClient = await database;
+    await dbClient.delete(table);
+  }
 }
